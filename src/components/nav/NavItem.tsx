@@ -50,11 +50,17 @@ export default function NavItem({
     <a
       href={to}
       onClick={handleClick}
-      className={clsx("flex gap-3 items-center", {
-        "text-blue-600 font-bold": isOn,
+      className={clsx("flex gap-3 items-center px-7 py-4", {
+        "text-blue-600 font-bold active": isOn,
       })}
     >
       <Icon size="24" /> {title}
+      <style>{`
+        .active {
+          background: no-repeat url("/active-nav-item.svg");
+          background-size: contain;
+        }
+      `}</style>
     </a>
   );
 }
