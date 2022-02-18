@@ -31,6 +31,7 @@ export default function Button({
   backgroundColor,
   labelColor,
   Icon,
+  className,
   theme = "black",
   size = "md",
 }: ButtonProps) {
@@ -41,9 +42,10 @@ export default function Button({
         applyColor(theme),
         applySize(size),
         {
-          [`flex flex-row-reverse gap-4 items-center ${btnColor[theme].foreground}`]:
+          [`flex flex-row-reverse gap-4 items-center justify-center ${btnColor[theme].foreground}`]:
             Icon,
-        }
+        },
+        className
       )}
       style={{ backgroundColor, color: labelColor }}
     >
