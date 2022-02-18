@@ -37,7 +37,7 @@ export default function Button({
   return (
     <button
       className={clsx(
-        "rounded-lg font-semibold",
+        "rounded-lg font-semibold transition-colors duration-250",
         applyColor(theme),
         applySize(size),
         {
@@ -54,23 +54,23 @@ export default function Button({
 
 const btnColor = {
   black: {
-    primary: "bg-slate-800",
+    primary: "hover:bg-slate-900 bg-slate-800",
     foreground: "text-white",
   },
   green: {
-    primary: "bg-green-400",
+    primary: "hover:bg-green-600 bg-green-400",
     foreground: "text-white",
   },
   white: {
-    primary: "bg-white",
+    primary: "hover:bg-slate-300 bg-white",
     foreground: "text-slate-800",
   },
   blue: {
-    primary: "bg-sky-500",
+    primary: "hover:bg-sky-600 bg-sky-500",
     foreground: "text-white",
   },
   red: {
-    primary: "bg-red-500",
+    primary: "hover:bg-rose-700 bg-rose-600",
     foreground: "text-white",
   },
 };
