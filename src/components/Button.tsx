@@ -30,7 +30,11 @@ export default function Button({
 }: ButtonProps) {
   return (
     <button
-      className={clsx("rounded-lg", applyColor(theme), applySize(size))}
+      className={clsx(
+        "rounded-lg font-semibold",
+        applyColor(theme),
+        applySize(size)
+      )}
       style={{ backgroundColor, color: labelColor }}
     >
       {children}
