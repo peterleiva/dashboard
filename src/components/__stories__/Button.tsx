@@ -1,4 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { BsPlus as BtnIcon } from "react-icons/bs";
 import Button from "../Button";
 
 type ButtonComponent = typeof Button;
@@ -33,4 +34,9 @@ Large.args = {
 export const ExtraLarge = Template.bind({});
 ExtraLarge.args = {
   size: "xl",
+};
+
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  Icon: BtnIcon,
 };
