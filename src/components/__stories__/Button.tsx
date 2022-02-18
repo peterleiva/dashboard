@@ -6,6 +6,9 @@ type ButtonComponent = typeof Button;
 export default {
   title: "Button",
   component: Button,
+  parameters: {
+    actions: { argTypesRegex: "^on.*" },
+  },
 } as ComponentMeta<ButtonComponent>;
 
 const Template: ComponentStory<ButtonComponent> = (args) => (
