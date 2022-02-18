@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { IconType } from "react-icons";
 
 type ButtonType = JSX.IntrinsicElements["button"];
 
@@ -19,12 +20,17 @@ type ButtonProps = ButtonType & {
    * choose one of predefined button colors
    */
   theme: ButtonColor;
+  /**
+   * add icon to button
+   */
+  Icon?: IconType;
 };
 
 export default function Button({
   children,
   backgroundColor,
   labelColor,
+  Icon,
   theme = "black",
   size = "md",
 }: ButtonProps) {
@@ -33,11 +39,15 @@ export default function Button({
       className={clsx(
         "rounded-lg font-semibold",
         applyColor(theme),
-        applySize(size)
+        applySize(size),
+        {
+          [`flex flex-row-reverse gap-4 items-center ${btnColor[theme].foreground}`]:
+            Icon,
+        }
       )}
       style={{ backgroundColor, color: labelColor }}
     >
-      {children}
+      {Icon && <Icon transform={`scale(1.5)`} />} {children}
     </button>
   );
 }
