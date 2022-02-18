@@ -12,24 +12,25 @@ type ButtonProps = ButtonType & {
    */
   labelColor?: string;
   /**
-   * define button size
+   * use one of button predefined size
    */
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: ButtonSize;
+  /**
+   * choose one of predefined button colors
+   */
+  theme: ButtonColor;
 };
 
 export default function Button({
   children,
   backgroundColor,
   labelColor,
+  theme = "black",
   size = "md",
 }: ButtonProps) {
   return (
     <button
-      className={clsx(
-        "px-6 py-3 rounded-lg",
-        "bg-slate-800 text-white",
-        `scale-${sizes[size]}`
-      )}
+      className={clsx("rounded-lg", applyColor(theme), applySize(size))}
       style={{ backgroundColor, color: labelColor }}
     >
       {children}
@@ -37,17 +38,41 @@ export default function Button({
   );
 }
 
-const colors = {
-  black: "slate-800",
-  green: "green-400",
-  white: "white",
-  blue: "sky-500",
-  red: "red-500",
+const btnColor = {
+  black: {
+    primary: "bg-slate-800",
+    foreground: "text-white",
+  },
+  green: {
+    primary: "bg-green-400",
+    foreground: "text-white",
+  },
+  white: {
+    primary: "bg-white",
+    foreground: "text-slate-800",
+  },
+  blue: {
+    primary: "bg-sky-500",
+    foreground: "text-white",
+  },
+  red: {
+    primary: "bg-red-500",
+    foreground: "text-white",
+  },
 };
 
 const sizes = {
-  sm: "-4",
-  md: "0",
-  lg: "4",
-  xl: "6",
+  sm: "px-4 py-1 text-sm",
+  md: "px-6 py-3 text-base",
+  lg: "px-7 py-4 text-lg",
+  xl: "px-8 py-5 text-xl",
+  "2xl": "px-9 py-6 text-2xl",
 };
+
+type ButtonColor = keyof typeof btnColor;
+type ButtonSize = keyof typeof sizes;
+
+const applyColor = (color: ButtonColor) =>
+  Object.values(btnColor[color]).join(" ");
+
+const applySize = (size: ButtonSize) => sizes[size];

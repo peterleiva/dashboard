@@ -15,4 +15,22 @@ const Template: ComponentStory<ButtonComponent> = (args) => (
   <Button {...args}>button</Button>
 );
 
-export const Default = Template.bind({});
+export const Primary = Template.bind({});
+Primary.args = {
+  size: "md",
+};
+
+export const Small = Template.bind({});
+Small.args = {
+  size: "sm",
+};
+
+export const Large = Template.bind({});
+Large.args = {
+  size: "lg",
+};
+
+export const ExtraLarge = Template.bind({});
+ExtraLarge.args = {
+  size: "xl",
+};
