@@ -40,3 +40,9 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
   Icon: BtnIcon,
 };
+
+export const Block = Template.bind({});
+Block.args = {
+  className: "w-full",
+  Icon: BtnIcon,
+};
