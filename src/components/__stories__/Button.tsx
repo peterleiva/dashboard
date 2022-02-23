@@ -1,4 +1,4 @@
-import { ComponentMeta, ComponentStory } from "@storybook/react";
+import { type ComponentMeta, type ComponentStory } from "@storybook/react";
 import { BsPlus as BtnIcon } from "react-icons/bs";
 import Button from "../Button";
 
